@@ -3,6 +3,7 @@ import { TextField, Button, Typography, Paper } from '@material-ui/core';
 import FileBase from 'react-file-base64';
 import { useDispatch, useSelector } from 'react-redux';
 import useStyles from './styles';
+import { Link } from 'react-router-dom'
 import { createPost, updatePost } from '../../actions/posts';
 
 
@@ -48,7 +49,7 @@ const Form = ({ currentId, setCurrentId }) => {
             <div className={classes.fileinput}><FileBase type ="file" multiple={false} onDone={({base64}) => setPostData({ ...postData, selectedFile: base64 })}/></div>
             <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
             <Button className ={classes.buttonSec} variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
-            <Button className ={classes.buttonSec} variant="contained" color="secondary" size="small" fullWidth>Open Map</Button>
+            <Button component={Link} to="/map" className ={classes.buttonSec} variant="contained" color="secondary" size="small" fullWidth>Open Map</Button>
             </form>
         </Paper>
     );
